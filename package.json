@@ -1,0 +1,11 @@
+{
+  "name": "sql-blog-app",
+  "version": "1.0.0",
+  "description": "Full Stack Open 2023 PostGreSQL exercise",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Atte Kivisto",
+  "license": "ISC"
+}
