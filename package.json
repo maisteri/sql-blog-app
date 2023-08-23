@@ -4,8 +4,21 @@
   "description": "Full Stack Open 2023 PostGreSQL exercise",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start:cli": "node cli.js",
+    "start": "node index.js"
   },
   "author": "Atte Kivisto",
-  "license": "ISC"
+  "license": "ISC",
+  "dependencies": {
+    "dotenv": "^16.3.1",
+    "express": "^4.18.2",
+    "pg": "^8.11.2",
+    "sequelize": "^6.32.1"
+  },
+  "devDependencies": {
+    "@flydotio/dockerfile": "^0.4.3",
+    "eslint": "^8.46.0",
+    "nodemon": "^3.0.1"
+  }
 }
