@@ -1,8 +1,6 @@
 const Sequelize = require('sequelize')
 const { DATABASE_URL } = require('./config')
 
-console.log(DATABASE_URL)
-console.log(process.env.DATABASE_URL)
 const sequelize = new Sequelize(DATABASE_URL)
 
 const connectToDatabase = async () => {

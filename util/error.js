@@ -6,7 +6,9 @@ const errorHandler = (error, request, response, next) => {
   }
 
   if (error.name === 'SequelizeValidationError') {
-    return response.status(400).send(error)
+    return response
+      .status(400)
+      .send({ error: error.errors.map((e) => e.message) })
   }
 
   next(error)
