@@ -7,7 +7,8 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "start:cli": "node cli.js",
     "start": "node index.js",
-    "dev": "nodemon index.js"
+    "dev": "nodemon index.js",
+    "migration:down": "node util/rollback.js"
   },
   "author": "Atte Kivisto",
   "license": "ISC",
@@ -18,7 +19,8 @@
     "express-async-errors": "^3.1.1",
     "jsonwebtoken": "^9.0.1",
     "pg": "^8.11.2",
-    "sequelize": "^6.32.1"
+    "sequelize": "^6.32.1",
+    "umzug": "^3.3.1"
   },
   "devDependencies": {
     "@flydotio/dockerfile": "^0.4.3",
@@ -26,3 +28,4 @@
     "nodemon": "^3.0.1"
   }
 }
+
