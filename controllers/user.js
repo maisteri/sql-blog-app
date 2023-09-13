@@ -1,6 +1,5 @@
 const router = require('express').Router()
 const bcrypt = require('bcrypt')
-
 const { User, Blog } = require('../models')
 
 const removePasswordHash = (response) => {
@@ -18,6 +17,32 @@ router.get('/', async (req, res) => {
     attributes: { exclude: ['passwordHash'] },
   })
   res.json(users)
+})
+
+router.get('/:id', async (req, res) => {
+  let where = {}
+  const filter = req.query.read
+
+  if (filter) {
+    where = {
+      read: filter,
+    }
+  }
+  const userWithReadings = await User.findByPk(req.params.id, {
+    attributes: { exclude: ['passwordHash'] },
+    include: [
+      {
+        model: Blog,
+        as: 'readings',
+        attributes: { exclude: ['userId', 'updatedAt', 'createdAt'] },
+        through: {
+          attributes: ['id', 'read'],
+          where,
+        },
+      },
+    ],
+  })
+  res.json(userWithReadings)
 })
 
 router.post('/', async (req, res) => {
