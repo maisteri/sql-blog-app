@@ -1,5 +1,5 @@
 const errorHandler = (error, request, response, next) => {
-  console.error(error.message)
+  console.error('Error: ', error.message)
 
   if (error.name === 'CastError') {
     return response.status(400).send(error)
@@ -9,6 +9,10 @@ const errorHandler = (error, request, response, next) => {
     return response
       .status(400)
       .send({ error: error.errors.map((e) => e.message) })
+  }
+
+  if (error.name === 'SequelizeDatabaseError') {
+    return response.status(400).send({ error: error.message })
   }
 
   next(error)
