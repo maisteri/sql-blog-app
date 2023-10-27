@@ -1,9 +1,7 @@
 require('dotenv').config()
 const { Sequelize, QueryTypes } = require('sequelize')
 
-const sequelize = new Sequelize(
-  'postgres://postgres:DHruQhMly4rRwBP@dawn-paper-3606-db.flycast:5432'
-)
+const sequelize = new Sequelize(process.env.DATABASE_URL)
 
 const main = async () => {
   try {
